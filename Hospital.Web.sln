@@ -11,6 +11,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Hospital.Services", "Hospit
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Hospital.Common", "Hospital.Infrastructure\Hospital.Common.csproj", "{471818A0-46E1-4E03-A64C-0449F74483D1}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Hospital.Test", "Hospital.Test\Hospital.Test.csproj", "{72818BDA-22FA-44F6-866E-29F31B051700}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -33,6 +35,10 @@ Global
 		{471818A0-46E1-4E03-A64C-0449F74483D1}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{471818A0-46E1-4E03-A64C-0449F74483D1}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{471818A0-46E1-4E03-A64C-0449F74483D1}.Release|Any CPU.Build.0 = Release|Any CPU
+		{72818BDA-22FA-44F6-866E-29F31B051700}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{72818BDA-22FA-44F6-866E-29F31B051700}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{72818BDA-22FA-44F6-866E-29F31B051700}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{72818BDA-22FA-44F6-866E-29F31B051700}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

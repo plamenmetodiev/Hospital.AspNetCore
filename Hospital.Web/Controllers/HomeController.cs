@@ -26,6 +26,7 @@
         public async Task<IActionResult> Search(SearchPatientFormModel model)
         {
             var patient = await this.patient.FindPatientMedicalProfileAsync(model.SearchBox);
+
             if (patient != null)
             {
                 var today = DateTime.Today;
