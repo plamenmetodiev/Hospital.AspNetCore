@@ -1,0 +1,22 @@
+﻿@model MedicineServiceModel
+@{
+    ViewData["Title"] = "";
+}
+
+<form method="post">
+    <h2>@Model.Name</h2>
+
+    <h3>Price: @Model.Price</h3>
+
+    <h3>Quantity: @Model.Quantity</h3>
+
+    <h3>Supplier: @Model.SupplierName</h3>
+
+    <button class="btn btn-danger" asp-action="Index">Back</button>
+
+    @if (Model.Quantity == 0)
+    {
+        <button class="btn btn-success" asp-action="Confirm" asp-route-id="@Model.Id">Confirm</button>
+    }
+</form>
+

@@ -1,0 +1,60 @@
+﻿@model IEnumerable<CurrentlyRegisteredPatientServiceModel>
+
+@{
+    ViewData["Title"] = "Your Currently Registered Patients";
+    int i = 1;
+}
+
+<h2>@ViewData["Title"]</h2>
+
+<a class="btn btn-primary" asp-controller="Patients" asp-action="Register">Register Patient</a>
+<table class="table">
+    <thead>
+        <tr>
+            <th></th>
+            <th>
+                Name
+            </th>
+            <th>
+                Diagnosis
+            </th>
+            <th>
+                Registered Date
+            </th>
+            <th>
+                Medicines
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+
+        @foreach (var patient in Model)
+        {
+            <tr>
+                <td>
+                    @(i++)
+                </td>
+                <td>
+                    @patient.FirstName @patient.LastName
+                </td>
+                <td>
+                    @patient.Diagnosis
+                </td>
+                <td>
+                    @patient.RegistrationDate.ToString("dd-MM-yyyy hh:mm")
+                </td>
+                <td>
+                    @string.Join(", ", patient.Medicines)
+                </td>
+                <td>
+                    <a asp-action="add-medicines" asp-route-id="@patient.Id" class="btn btn-primary">Add Medicines</a>
+
+                    <a asp-action="Edit" asp-route-id="@patient.Id" class="btn btn-warning">Edit</a>
+                    <a asp-action="Details" asp-route-id="@patient.Id" class="btn btn-primary">Details</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+

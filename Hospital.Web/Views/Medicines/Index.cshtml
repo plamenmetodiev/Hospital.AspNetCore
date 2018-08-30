@@ -1,0 +1,53 @@
+﻿@model IEnumerable<MedicineServiceModel>
+@{
+    ViewData["Title"] = "All Medicines";
+    int i = 1;
+}
+
+<h2>@ViewData["Title"]</h2>
+@if (User.IsInRole(WebConstants.ManagerRole))
+{
+    <a asp-action="Add" class="btn btn-primary">Add New Medicine</a>
+    <br />
+    <br />
+}
+    <table class="table table-hover table-bordered">
+        <thead>
+            <tr>
+                <th></th>
+                <th>Name</th>
+                <th>Quantity</th>
+                <th>Price</th>
+                <th>Supplier</th>
+                @if (User.IsInRole(WebConstants.ManagerRole))
+                {
+                    <th></th>
+                }
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var medicine in Model)
+            {
+                <tr>
+                    <td>@(i++)</td>
+                    <td>@medicine.Name</td>
+                    <td>@medicine.Quantity</td>
+                    <td>@medicine.Price</td>
+                    <td>@medicine.SupplierName</td>
+
+                    @if (User.IsInRole(WebConstants.ManagerRole))
+                    {
+                        <td>
+                            <a asp-route-id="@medicine.Id" asp-action="Deliver" class="btn btn-primary">Deliver More</a>
+                            <a asp-route-id="@medicine.Id" asp-action="Edit" class="btn btn-warning">Edit</a>
+                            @if (medicine.Quantity == 0)
+                            {
+                                <a asp-route-id="@medicine.Id" asp-action="Delete" class="btn btn-danger">Delete</a>
+                            }
+                        </td>
+                    }
+                </tr>
+            }
+        </tbody>
+    </table>
+

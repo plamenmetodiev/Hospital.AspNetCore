@@ -1,0 +1,27 @@
+﻿@model AddMedicinesFormModel
+@{
+    ViewData["Title"] = "Add Medicines";
+}
+
+<h2>@ViewData["Title"]</h2>
+
+<div class="row">
+    <div class="col-md-4">
+        <form method="post">
+            <div asp-validation-summary="All" class="text-danger"></div>
+                <label asp-for="Name"></label>
+                <label asp-for="Diagnosis"></label>
+            <p>Medicines in Stock</p>
+            <div class="form-group">
+                <label asp-for="MedicinesIds"></label>
+                <select asp-for="MedicinesIds" asp-items="Model.Medicines"></select>
+                <span asp-validation-for="MedicinesIds" class="text-danger"></span>
+            </div>
+            <button type="submit" class="btn btn-success">Add</button>
+        </form>
+    </div>
+</div>
+
+@section Scripts {
+    @await Html.PartialAsync("_ValidationScriptsPartial")
+}

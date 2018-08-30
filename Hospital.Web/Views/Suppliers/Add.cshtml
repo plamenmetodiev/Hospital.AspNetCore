@@ -1,0 +1,12 @@
+﻿@model SupplierFormModel
+@{
+    ViewData["Title"] = "Add New Supplier";
+}
+
+<h2>@ViewData["Title"]</h2>
+
+<div class="row">
+    <div class="col-md-4">
+        @await Html.PartialAsync("_SupplierFormPartial", Model)
+    </div>
+</div>

@@ -1,0 +1,12 @@
+﻿@model SupplierServiceModel
+@{
+    ViewData["Title"] = "Delete";
+}
+
+<h2>@ViewData["Title"] @Model.Name</h2>
+
+<form method="post">
+    <button class="btn btn-danger" asp-action="Index">Cancel</button>
+    <button class="btn btn-success" asp-action="Confirm" asp-route-id="@Model.Id">Confirm</button>
+</form>
+

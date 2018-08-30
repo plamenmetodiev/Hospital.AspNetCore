@@ -1,0 +1,78 @@
+﻿@model PatientDetailsViewModel
+@{
+    ViewData["Title"] = "Patient Details";
+}
+
+<h2>@ViewData["Title"]</h2>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th> <b>Personal Information: </b></th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>Patient Name:</td>
+            <td>@Model.Patient.FirstName @Model.Patient.LastName</td>
+        </tr>
+        <tr>
+            <td>Birth Date</td>
+            <td>@Model.Patient.BirthDate.ToString("dd-MM-yyyy")</td>
+        </tr>
+        <tr>
+            <td>Age</td>
+            <td>@Model.Age</td>
+        </tr>
+        <tr>
+            <td>Address</td>
+            <td>@Model.Patient.Address</td>
+        </tr>
+        <tr>
+            <td>Health Insurance</td>
+            <td><input asp-for="@Model.Patient.HasHealthInsurance" disabled /></td>
+        </tr>
+        <tr>
+            <td><b>Medical Information</b></td>
+        </tr>
+        <tr>
+            <td>Diagnosis</td>
+            <td>@Model.Patient.Diagnosis</td>
+        </tr>
+        <tr>
+            <td>Medicines</td>
+            <td>
+                @string.Join(", ", Model.Patient.Medicines)
+            </td>
+        </tr>
+        <tr>
+            <td>Total Cost</td>
+            <td>@Math.Round(Model.Patient.TotalCost, 2) lv.</td>
+        </tr>
+        <tr>
+            <td>Registration Date</td>
+            <td>@Model.Patient.RegistrationDate.ToString("dd-MM-yyyy hh:mm")</td>
+        </tr>
+        @if (!Model.IsPatientCurrentlyRegistered)
+        {
+            <tr>
+                <td>Deregistration Date</td>
+                <td>@Model.Patient.DeregistrationDate?.ToString("dd-MM-yyyy hh:mm")</td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+
+@if (Model.IsPatientCurrentlyRegistered)
+{
+    <form method="post">
+        <button asp-action="Deregister" asp-route-id="@Model.Patient.Id" class="btn btn-danger">Deregister</button>
+    </form>
+}
+
+
+
+
+
