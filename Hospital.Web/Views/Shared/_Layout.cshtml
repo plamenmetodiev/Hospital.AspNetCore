@@ -26,7 +26,7 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a asp-area="" asp-controller="Home" asp-action="Index" class="navbar-brand">Hospital.Web</a>
+                <a asp-area="" asp-controller="Home" asp-action="Index" class="navbar-brand">Hospital</a>
             </div>
             <div class="navbar-collapse collapse">
                 <ul class="nav navbar-nav">
@@ -35,9 +35,12 @@
                     {
                         <li><a asp-area="Admin" asp-controller="Users" asp-action="Index">Users</a></li>
                     }
-                    @if (User.IsInRole(WebConstants.DoctorRole) || User.IsInRole(WebConstants.ProfessorRole))
+                    @if (User.IsInRole(WebConstants.DoctorRole))
                     {
                         <li><a asp-area="" asp-controller="Patients" asp-action="Index">My Patients</a></li>
+                    }
+                    @if (User.IsInRole(WebConstants.ProfessorRole) || User.IsInRole(WebConstants.DoctorRole))
+                    {
                         <li><a asp-area="" asp-controller="Diagnoses" asp-action="Index">Diagnoses</a></li>
                     }
                     <li><a asp-area="" asp-controller="Medicines" asp-action="Index">Medicines</a></li>

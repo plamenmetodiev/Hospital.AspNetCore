@@ -6,7 +6,7 @@
 
 <h2>@ViewData["Title"]</h2>
 
-@if (User.IsInRole(WebConstants.ManagerRole))
+@if (User.IsInRole(WebConstants.ProfessorRole))
 {
     <a asp-action="add" class="btn btn-primary">Add New</a>
     <br />
@@ -18,7 +18,7 @@
             <th></th>
             <th>Name</th>
             <th>Description</th>
-            @if (User.IsInRole(WebConstants.ManagerRole))
+            @if (User.IsInRole(WebConstants.ProfessorRole))
             {
                 <th></th>
             }
@@ -32,7 +32,7 @@
                 <td>@(i++)</td>
                 <td>@diagnose.Name</td>
                 <td>@diagnose.Description</td>
-                @if (User.IsInRole(WebConstants.ManagerRole))
+                @if (User.IsInRole(WebConstants.ProfessorRole))
                 {
                     <td>
                         <a asp-action="Edit" asp-route-id="@diagnose.Id" class="btn btn-warning">Edit</a>

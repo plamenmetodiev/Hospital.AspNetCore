@@ -40,11 +40,8 @@
                                     <input type="hidden" name="UserId" value="@user.Id" />
                                     <select name="Role" asp-items="Model.Roles" class="form-control"></select>
                                 </div>
-                                <div class="btn-group">
-
-                                    <button type="button" asp-action="AddToRole" class="btn btn-sm btn-primary">Add To Role</button>
-                                    <button type="button" asp-action="RemoveFromRole" class="btn btn-sm btn-danger">Remove From Role</button>
-                                </div>
+                                    <button asp-action="AddToRole" class="btn btn-sm btn-primary">Add To Role</button>
+                                    <button asp-action="RemoveFromRole" class="btn btn-sm btn-danger">Remove From Role</button>
                             </div>
                         </form>
                                 
